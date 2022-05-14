@@ -33,5 +33,5 @@ Optional arguments:
 ```
 scrapy crawl years -o years.csv
 scrapy crawl places -o places.csv
-scrapy crawl data
+scrapy crawl data -o race_results.csv
 ```
