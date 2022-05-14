@@ -6,7 +6,7 @@ class Link(scrapy.Item):
 #creating the class Spider for scapry
 class LinkListsSpider(scrapy.Spider):
     name = 'years'
-    allowed_domains = ['https://www.formula1.com']
+    allowed_domains = ['www.formula1.com']
     start_urls = ['https://www.formula1.com/en/results.html']
 
     # get thed list of year urls

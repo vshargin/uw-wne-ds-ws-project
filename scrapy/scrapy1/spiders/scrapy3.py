@@ -17,9 +17,9 @@ class Table(scrapy.Item):
 #creating the class Spider for scapry
 class LinksSpider(scrapy.Spider):
     name = 'data'
-    allowed_domains = ['https://www.formula1.com']
+    allowed_domains = ['formula1.com']
     try:
-        with open("../../places.csv", "rt") as f:
+        with open("places.csv", "rt") as f:
             # starting to execute the links from csv starting from 1 because of heading
             start_urls = [url.strip() for url in f.readlines()][1:]
     except:

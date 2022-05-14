@@ -11,9 +11,9 @@ class Link(scrapy.Item):
 #creating the class Spider for scapry
 class LinksSpider(scrapy.Spider):
     name = 'places'
-    allowed_domains = ['https://www.formula1.com']
+    allowed_domains = ['www.formula1.com']
     try:
-        with open("../../years.csv", "rt") as f:
+        with open("years.csv", "rt") as f:
             start_urls = [url.strip() for url in f.readlines()][1:pages]
     except:
         start_urls = []
