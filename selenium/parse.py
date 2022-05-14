@@ -4,14 +4,15 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
 import argparse
+import re
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-l", "--limit", help="Number of races to scrape, default is 100. All races will be scraped if set to -1.",
                     type=int,
                     default=100)
-parser.add_argument("-o", "--output_path", help="Output file name.",
+parser.add_argument("--output-path", help="Output file name for race results.",
                     type=str,
-                    default='output.csv')
+                    default='race_results.csv')
 args = parser.parse_args()
 
 if args.limit == -1:
@@ -27,7 +28,7 @@ def parse_race(race_url):
     # get race description
     season = driver.find_element(By.XPATH, "//a[@data-name=\"year\"][contains(concat(' ',normalize-space(@class),' '),' selected ')]").text
     race_name = driver.find_element(By.XPATH, "//a[@data-name=\"meetingKey\"][contains(concat(' ',normalize-space(@class),' '),' selected ')]").text
-    full_race_name = driver.find_element(By.CLASS_NAME, 'ResultsArchiveTitle').text.replace(' - RACE RESULT', '')
+    full_race_name = re.sub(' - RACE RESULT| - SPRINT', '', driver.find_element(By.CLASS_NAME, 'ResultsArchiveTitle').text)
     race_date = driver.find_element(By.CLASS_NAME, 'full-date').text
     race_location = driver.find_element(By.CLASS_NAME, 'circuit-info').text
 
@@ -88,5 +89,4 @@ driver.close()
 print(f'Total races scraped: {scraped_races}')
 
 pd.DataFrame(race_results).to_csv(args.output_path, index=False)
-
-print(f'Output saved at {args.output_path}')
+print(f'Race results saved at {args.output_path}')
