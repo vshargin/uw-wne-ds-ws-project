@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Web Scraping and Social Media Scraping - Final project
 
 Completed for the Web Scraping and Social Media Scraping course (2400-DS1WSMS) at the University of Warsaw, Faculty of Economic Sciences, MA in Data Science and Business Analytics program by:
@@ -35,3 +36,16 @@ scrapy crawl years
 scrapy crawl places
 scrapy crawl data
 ```
+=======
+# uw-wne-ds-ws-project
+
+Selenium:
+to run the code - use terminal with command "python parse.py"
+
+Scapy:
+to run the code - use terminal with command "scrapy crawl years" in the first file,
+"scrapy crawl places" in the second, "scrapy crawl data" in the third
+
+BeatifulSoul:
+to run the code - use compiler 
+>>>>>>> bf9b8abcc4dc5ceddb3f45d6ebd777d341b60227
