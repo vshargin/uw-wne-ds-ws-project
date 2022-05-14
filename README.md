@@ -31,7 +31,7 @@ Optional arguments:
 ### Scrapy
 
 ```
-scrapy crawl years
-scrapy crawl places
+scrapy crawl years -o years.csv
+scrapy crawl places -o places.csv
 scrapy crawl data
 ```
